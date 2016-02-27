@@ -30,7 +30,7 @@ function initCanvas(){
     function Background(){
         this.name = 'delicious-user-icone-4612-64', this.x = 0, this.y = 0, this.pos = this.y, this.w = bg.width, this.h = bg.height;
         this.render = function(){
-            this.y += speed*64;
+            this.y += speed;
             this.pos = this.y;
             //console.log(this.y);
             ctx.drawImage(bg, 0 ,this.y);
@@ -42,7 +42,7 @@ function initCanvas(){
     function Background2(){
         this.name = 'skull-crossbones-icon', this.x = 0, this.y = -65, this.pos = this.y, this.w = bg.width, this.h = bg.height;
         this.render = function(){
-            this.y += speed*64;
+            this.y += speed;
             this.pos = this.y;
             //console.log(this.y);
             ctx.drawImage(bg2, 0 ,this.y);
@@ -54,7 +54,7 @@ function initCanvas(){
      function Background3(){
         this.name = 'pirate-icon', this.x = 0, this.y = -129, this.pos = this.y, this.w = bg.width, this.h = bg.height;
         this.render = function(){
-            this.y += speed*64;
+            this.y += speed;
             this.pos = this.y;
             //console.log(this.y);
             ctx.drawImage(bg3, 0 ,this.y);
@@ -66,7 +66,7 @@ function initCanvas(){
     function Background4(){
         this.name = 'delicious-user-icone-4612-64', this.x = 65, this.y = -193, this.pos = this.y, this.w = bg.width, this.h = bg.height;
         this.render = function(){
-            this.y += speed*64;
+            this.y += speed;
             this.pos = this.y;
             //console.log(this.y);
             ctx.drawImage(bg4, 0 ,this.y);
@@ -78,7 +78,7 @@ function initCanvas(){
     function Background5(){
         this.name = 'Orange', this.x = 65, this.y = -257, this.pos = this.y, this.w = bg.width, this.h = bg.height;
         this.render = function(){
-            this.y += speed*64;
+            this.y += speed;
             this.pos = this.y;
             //console.log(this.y);
             ctx.drawImage(bg5, 0 ,this.y);
@@ -104,7 +104,8 @@ function initCanvas(){
         background_2.render();
         background_3.render();
         background_4.render();
-        background_5.render();       
+        background_5.render();
+       
         // End drawing here
         ctx.restore();
     }
@@ -116,26 +117,26 @@ function initCanvas(){
     }
     function speedUp(){
       if ( speed == maxSpeed) {
-          
+        
         status = true;
         console.log(status);
-        if(background.pos >= 0 && background.pos < 64){
+        if(background.pos > 0 && background.pos < 64){
          console.log(background.name+' Pos 1 winner'); 
          winner = background;
         }
-        if(background_2.pos >= 0 && background_2.pos < 64){
+        if(background_2.pos > 0 && background_2.pos < 64){
          console.log(background_2.name+' Pos 2 winner');
          winner = background_2;
         }
-        if(background_3.pos >= 0 && background_3.pos < 64){
+        if(background_3.pos > 0 && background_3.pos < 64){
          console.log(background_3.name+' Pos 3 winner'); 
          winner = background_3;
         }
-        if(background_4.pos >= 0 && background_4.pos < 64){
+        if(background_4.pos > 0 && background_4.pos < 64){
          console.log(background_4.name+'. Pos 4 winner');
          winner = background_4;
         }
-        if(background_5.pos >= 0 && background_5.pos < 64){
+        if(background_5.pos > 0 && background_5.pos < 64){
          console.log(background_5.name+'. Pos 5 winner');
          winner = background_5;
         }
@@ -150,7 +151,7 @@ function initCanvas(){
         speed++;
         //console.log('faster '+ speed;
       }
-      console.log( [winner][0].y+"   This is here");
+      console.log( [winner][0].y+"   This is the y-cord or the winner. Line 154.");
       //console.log(winner.pos);
       if ( speed < 19  && status == true && [winner][0].y > 0  && [winner][0].y < 42){
         status = false;
@@ -178,13 +179,13 @@ function initCanvas(){
     var speedUp;
     var speedDown;
     this.finalize = function(){
-     speedDown = setInterval(speedDownf, 2000); 
+     speedDown = setInterval(speedDownf, 500); 
     }
     this.spin = function(){
     if(toggle == true ){
       setSpeed(10,15); 
-      animateInterval = setInterval(animate, 300);
-      speedUp1 = setInterval(speedUp, 1000);
+      animateInterval = setInterval(animate, 30);
+      speedUp1 = setInterval(speedUp, 200);
       toggle = false;
     }
     else{
